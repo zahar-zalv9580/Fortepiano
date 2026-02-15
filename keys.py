@@ -1,4 +1,4 @@
-from pygame import Rect
+from pygame import Rect, transform, image
 from effects import spawn_flying_notes, update_and_draw_flying_notes
 
 
