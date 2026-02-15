@@ -21,8 +21,8 @@ def draw_keys(screen, key_rects, pressed_keys):
         screen.blit(KEY_UNPRESSED, (rect.x, rect.y))
         if is_pressed and i not in PREV_PRESSED:
             spawn_flying_notes(rect, NOTE_BY_INDEX.get(i))
-        PREV_PRESSED = pressed_set
-        update_and_draw_flying_notes(screen)
+    PREV_PRESSED = pressed_set
+    update_and_draw_flying_notes(screen)
 
 def create_key_rects(num_keys, start_x=50, start_y=100, key_width=100, key_height=250):
     rects = []

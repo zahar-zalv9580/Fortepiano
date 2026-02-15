@@ -23,16 +23,15 @@ def spawn_flying_notes(rect, note_name:str | None):
     y = rect.top - img.get_height() - 10
     FLYING_NOTES.append({"image": img, "x": x, "y": y, "vy": -1})
 
-
-    def update_and_draw_flying_notes(screen):
-        to_remove = []
-        for n in FLYING_NOTES:
-            n["y"] += n["vy"]
-            screen.blit(n["img"], (n["x"], n["y"]))
-            if n["y"] + n["img"].get_height() < 0:
-                to_remove.append(n)
-        for n in to_remove:
-            FLYING_NOTES.remove(n)
+def update_and_draw_flying_notes(screen):
+    to_remove = []
+    for n in FLYING_NOTES:
+        n["y"] += n["vy"]
+        screen.blit(n["image"], (n["x"], n["y"]))
+        if n["y"] + n["image"].get_height() < 0:
+            to_remove.append(n)
+    for n in to_remove:
+        FLYING_NOTES.remove(n)
 
 def draw_key_effect(screen, rect, is_pressed=False):
     if not is_pressed:
